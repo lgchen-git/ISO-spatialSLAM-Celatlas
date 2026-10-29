@@ -1,0 +1,114 @@
+# Copy to conf/<project>.yaml and replace every CHANGE_ME value.
+project_name: CHANGE_ME
+analysis_type: lr_celatlas_spatial_slam
+run_id: CHANGE_ME
+samples_tsv: conf/samples.lr_celatlas_spatial_slam.template.tsv
+analysis_layout: conf/analysis_layout.yaml
+software_selection: conf/software_selection.lr_celatlas_spatial_slam.yaml
+
+data_root: CHANGE_ME
+results_root: CHANGE_ME/results
+logs_root: CHANGE_ME/results/_project/03_logs
+tmp_root: CHANGE_ME/tmp/lr_celatlas_spatial_slam
+sample_first_layout: true
+large_file_threshold_mb: 100
+execution_profile: local_existing_envs
+resume_mode: resume
+sample_parallelism: false
+max_parallel_samples: 1
+threads: 4
+memory_gb: 48
+
+run_mode: full
+pilot_reads: 200000
+species: CHANGE_ME
+chemistry: BBV2.4
+coordinate_um_per_unit: 1.0
+bin_size: 50
+chip_bounds: 9357
+
+adapter_python: CHANGE_ME
+analysis_python: CHANGE_ME
+spatial_python: CHANGE_ME
+nanoplot_bin: NanoPlot
+minimap2_bin: minimap2
+samtools_bin: samtools
+
+enable_nanoplot: true
+external_variant_vcf:
+minimap2_preset: splice
+min_mapq: 20
+min_tc_baseq: 20
+mismatch_max_reads: 200000
+slam_partition_by_contig: true
+
+# Full-length transcript discovery. Leave transcriptome_existing_dir empty for
+# a new FLAMES run; set it to a prior FLAMES/gffcompare stage to import it.
+flames_python_dir: CHANGE_ME
+gffcompare_bin: gffcompare
+flames_min_support: 5
+flames_min_count_fraction: 0.001
+flames_min_support_fraction: 0.10
+flames_strand_specific: 0
+flames_downsample_ratio: 1.0
+transcriptome_existing_dir:
+
+# Whole-transcriptome spatial clustering. These values are used directly;
+# the workflow does not scan or select parameters.
+lr_spatial_min_bin_molecules: 20
+lr_spatial_min_gene_bins: 3
+lr_spatial_hvg: 2000
+lr_spatial_pca_components: 30
+lr_spatial_neighbors: 24
+lr_spatial_regress_log_depth: true
+lr_spatial_graph_weight: 0.20
+lr_spatial_min_cluster_bins: 100
+lr_spatial_leiden_resolution: 1.1
+lr_spatial_seed: 42
+lr_spatial_marker_top: 20
+lr_spatial_marker_display_top: 2
+lr_spatial_marker_min_logfoldchange: 0.25
+lr_spatial_marker_max_fdr: 0.05
+lr_spatial_chunk_rows: 250000
+
+gene_slam_min_informative_molecules: 100
+gene_slam_plot_top: 20
+joint_min_informative_molecules: 20
+joint_gene_plot_top: 20
+min_t_covered: 10
+min_tc_count: 2
+slam_fdr: 0.05
+max_site_other_mismatch_rate: 0.05
+max_read_other_mismatch_rate: 0.10
+
+anchor_max_ed_5p: 5
+linker_max_ed: 4
+linker_pos_tolerance: 8
+search_window: 300
+umi_len: 10
+poly_trim_min_run: 10
+min_read_len: 80
+structure_scan_workers: 4
+structure_scan_batch_size: 1000
+anchor_barcode_max_mismatch: 1
+fallback_barcode_max_mismatch: 1
+pilot_min_structure_rate: 0.50
+pilot_min_cdna_rate: 0.15
+pilot_min_mapq20_rate: 0.75
+
+plot_dpi: 300
+plot_font_family: DejaVu Sans
+plot_base_size: 10.5
+plot_hist_max_rows: 500000
+report_title: 长读长空间 SLAM 分析报告
+
+# Optional PPT/promotion figure pack. This consumes completed 01-07 outputs only.
+promo_figures_enabled: false
+promo_figures_dirname: 09_promo_figures
+promo_candidate_min_informative: 1000
+# Optional real read-to-isoform spatial reconstruction; disabled by default.
+promo_isoform_spatial_enabled: false
+promo_isoform_min_molecules: 100
+promo_isoform_max_genes_to_map: 25
+promo_isoform_min_dominant_difference: 0.25
+promo_isoform_min_js_divergence: 0.15

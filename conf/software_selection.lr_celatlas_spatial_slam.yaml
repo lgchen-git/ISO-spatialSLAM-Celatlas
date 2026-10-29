@@ -1,0 +1,22 @@
+reviewed_at: 2026-07-21
+alignment:
+  selected: minimap2 + samtools
+  basis: minimap2 splice presets support long spliced RNA reads and samtools provides standard BAM processing
+  source: https://github.com/lh3/minimap2
+slam_calling:
+  selected: project-specific strand-aware, contig-partitioned caller using pysam and scipy
+  basis: no reviewed existing tool preserves long-read BBV2.4 barcode, UMI, gene, and spatial molecule aggregation with this input contract
+  rejected_slamdunk: designed for standard SLAM-seq read processing; latest official release is 0.4.3 from 2020 and does not implement this spatial long-read molecule contract
+  source_slamdunk: https://github.com/t-neumann/slamdunk
+full_length_transcriptome:
+  selected: FLAMES + gffcompare
+  basis: FLAMES performs long-read isoform discovery and quantification; gffcompare provides reference-based transcript structure classes
+  source_flames: https://mritchielab.github.io/FLAMES/
+  source_gffcompare: https://github.com/gpertea/gffcompare
+whole_transcriptome:
+  selected: Scanpy + AnnData + leidenalg + pandas + scipy + matplotlib
+  basis: all long-read molecules are aggregated to spatial bins, normalized, depth-adjusted and clustered with a manually configured expression/spatial graph and Leiden
+  source: https://scanpy.readthedocs.io/en/stable/
+slam_joint:
+  selected: pandas + scipy + matplotlib
+  basis: joins configured whole-transcriptome clusters with long-read SLAM molecule calls for cluster-level and gene-level descriptive statistics; no maintained tool implements this exact molecule contract

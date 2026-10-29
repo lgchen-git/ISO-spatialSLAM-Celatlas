@@ -1,0 +1,14 @@
+name: bio-pipeline-base
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bash
+  - coreutils
+  - python=3.11
+  - pyyaml
+  - r-base
+  - pip
+  - pip:
+      - rich

@@ -1,0 +1,17 @@
+project_id: lr_celatlas_spatial_slam
+data_root: .
+results_root: results
+tmp_root: tmp/lr_celatlas_spatial_slam
+sample_layout: "{results_root}/{sample_id}/{stage_dir}"
+project_layout: "{results_root}/_project/{stage_dir}"
+large_file_threshold_mb: 100
+version_control: {required: true, system: git, dirty_policy: warn, provenance_file: git_provenance.tsv, release_tag_pattern: "pipeline-vX.Y.Z"}
+stages:
+  - {number: "01", id: read_qc, script_dir: "01_read_qc", result_dir: "01_read_qc", command: read-qc, final_report: false, external_tools: [nanoplot]}
+  - {number: "02", id: barcode_cdna, script_dir: "02_barcode_cdna", result_dir: "02_barcode_cdna", command: barcode-cdna, final_report: false}
+  - {number: "03", id: align, script_dir: "03_align", result_dir: "03_align", command: align, final_report: false, external_tools: [minimap2, samtools]}
+  - {number: "04", id: full_length_transcriptome, script_dir: "04_full_length_transcriptome", result_dir: "04_full_length_transcriptome", command: full-length-transcriptome, final_report: false, external_tools: [FLAMES, gffcompare, pandas, matplotlib]}
+  - {number: "05", id: slam, script_dir: "05_slam", result_dir: "05_slam", command: slam, final_report: false, external_tools: [pysam, pandas, scipy, matplotlib]}
+  - {number: "06", id: whole_transcriptome, script_dir: "06_whole_transcriptome", result_dir: "06_whole_transcriptome", command: whole-transcriptome, final_report: false, external_tools: [scanpy, anndata, leidenalg, pandas, scipy, matplotlib]}
+  - {number: "07", id: slam_joint, script_dir: "07_slam_joint", result_dir: "07_slam_joint", command: slam-joint, final_report: false, external_tools: [pandas, scipy, matplotlib]}
+  - {number: "08", id: report, script_dir: "08_report", result_dir: "08_report", command: report, final_report: true}

@@ -1,0 +1,45 @@
+# Copy this file to conf/<project>.yaml and edit the values below.
+# Keep runtime paths in results/, logs/, and tmp/.
+
+project_name: your_project_name
+analysis_type: generic
+run_id: run001
+
+samples_tsv: conf/samples.tsv
+input_root: data
+results_root: results
+logs_root: logs
+tmp_root: tmp
+tables_dirname: tables
+figures_dirname: figures
+reports_dirname: reports
+deliverables_dirname: deliverables
+editable_dirname: editable
+qc_dirname: qc
+pipeline_log_dirname: pipeline
+checkpoints_dirname: checkpoints
+work_dirname: work
+
+execution_profile: local
+resume_mode: resume
+sample_parallelism: true
+max_parallel_samples: 4
+threads: 8
+memory_gb: 32
+keep_tmp: false
+
+enable_preprocess: true
+enable_quantify: false
+enable_qc: true
+enable_report: false
+
+plot_palette: okabe_ito
+plot_font_family: Arial
+plot_base_size: 10
+plot_dpi: 300
+plot_width_in: 6
+plot_height_in: 4
+
+report_title: Project Report
+report_logo: epi-logo.png
+report_style: clean

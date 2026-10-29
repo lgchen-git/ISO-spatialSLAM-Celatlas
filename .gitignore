@@ -1,0 +1,86 @@
+# Runtime outputs
+logs/*
+output/*
+results/*
+tmp/*
+work/*
+data/
+raw_data/
+references/
+reports/
+
+# Keep directory structure
+!logs/.gitkeep
+!results/.gitkeep
+!tmp/.gitkeep
+
+# Workflow engine metadata
+.snakemake/
+.nextflow*
+.nf-test/
+.git-local/
+
+# Conda and local envs
+.conda/
+.mamba/
+.micromamba/
+conda-meta/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Editors
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.venv/
+venv/
+*.swp
+*.swo
+.codex
+
+# Common bioinformatics temp and cache files
+*.tmp
+*.temp
+*.bak
+*.log
+*.pid
+*.sqlite
+*.html.tmp
+*.bam
+*.bai
+*.cram
+*.crai
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.h5
+*.h5ad
+*.loom
+*.mtx
+*.mtx.gz
+*.rds
+
+# Local notebooks and checkpoints
+.ipynb_checkpoints/
+.agents/
+AGENTS.md
+.codex-config.toml
+archive/
+legacy/
+docs/RBC-*
+docs/codex-*
+docs/legacy_*
+docs/template_alignment.md

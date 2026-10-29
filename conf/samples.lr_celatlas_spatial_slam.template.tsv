@@ -1,0 +1,2 @@
+sample_id\tfastq\tchip_id\twhitelist_csv\tspecies\tchemistry\tgenome_fa\tgtf\tmmi\tjunc_bed\tthreads\ttissue_type\texperimental_group\tlabel_4su_dose\tlabel_4su_duration\tharvest_time\tunlabelled_control\tbiological_replicate\tsection_id\ttissue_image
+CHANGE_ME\tCHANGE_ME\tCHANGE_ME\tCHANGE_ME\tCHANGE_ME\tBBV2.4\tCHANGE_ME\tCHANGE_ME\t\t\t4\t\t\t\t\t\t\t\t\t
